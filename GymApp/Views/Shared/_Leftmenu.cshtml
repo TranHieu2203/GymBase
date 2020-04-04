@@ -1,0 +1,154 @@
+﻿<!--------------------
+       START - Mobile Menu
+       -------------------->
+
+<div class="menu-mobile menu-activated-on-click color-scheme-dark">
+    <div class="mm-logo-buttons-w">
+        <a class="mm-logo" href="/Home"><img src="~/Content/themes/img/logo.png"><span>Dashboard</span></a>
+        <div class="mm-buttons">
+            <div class="mobile-menu-trigger">
+                <div class="os-icon os-icon-hamburger-menu-1"></div>
+            </div>
+        </div>
+    </div>
+    <!---->
+    <div class="menu-and-user">
+        
+    @*<div class="logged-user-w">
+        <div class="avatar-w">
+            <img alt="" src="~/Content/themes/img/avatar1.jpg">
+        </div>
+        <div class="logged-user-info-w">
+            <div class="logged-user-name">
+                @AuthenticationHelper.GetUserName()
+            </div>
+            <div class="logged-user-role">
+                @AuthenticationHelper.GetUserAddress()
+            </div>
+        </div>
+    </div>*@
+        <!--------------------
+    START - Mobile Menu List
+    -------------------->
+        <ul class="main-menu">
+            <li class="has-sub-menu">
+                <a href="/Home">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-layout"></div>
+                    </div>
+                    <span>Dashboard</span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/AppUser">Tài khoản</a>
+                    </li>
+
+                </ul>
+            </li>
+
+        </ul>
+        <!--------------------
+    END - Mobile Menu List
+    -------------------->
+
+    </div>
+</div>
+<!--------------------
+END - Mobile Menu
+-------------------->
+<!--------------------
+START - Main Menu
+-------------------->
+<div class="menu-w color-scheme-light color-style-transparent menu-position-side menu-side-left menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-light menu-activated-on-hover menu-has-selected-link">
+    <div class="logo-w">
+        <a class="logo" href="/Home">
+            <div class="logo-element"></div>
+            <div class="logo-label">
+                Dashboard
+            </div>
+        </a>
+    </div>
+    <ul class="main-menu">
+        <li class="sub-header">
+            <span>Chức năng</span>
+        </li>
+        <li class="selected has-sub-menu">
+            <a href="/Home">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-layout"></div>
+                </div>
+                <span>Trang chủ</span>
+            </a>
+            <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Trang chủ
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-layout"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/AppUser">Tài khoản</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </li>
+      
+        <li class="selected has-sub-menu">
+            <a href="/Home">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-users"></div>
+                </div>
+                <span>Tài khoản</span>
+            </a>
+            <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Tài khoản
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-layout"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/AppUser">Tài khoản</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </li>
+
+        <li class="selected has-sub-menu">
+            <a href="/Home">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-layout"></div>
+                </div>
+                <span>Trang chủ</span>
+            </a>
+            <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Trang chủ
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-layout"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/AppUser">Tài khoản</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+<!--------------------
+END - Main Menu
+-------------------->

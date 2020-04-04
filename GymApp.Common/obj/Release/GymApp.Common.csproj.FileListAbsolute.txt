@@ -1,0 +1,5 @@
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\bin\Release\GymApp.Common.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\bin\Release\GymApp.Common.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\obj\Release\GymApp.Common.csprojAssemblyReference.cache
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\obj\Release\GymApp.Common.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\obj\Release\GymApp.Common.pdb

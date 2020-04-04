@@ -1,0 +1,410 @@
+﻿@{
+    ViewBag.Title = "Danh sách tài khoan";
+}
+
+<div class="element-wrapper" data-ng-controller="controller">
+    <script>
+        app.controller("controller", ['$scope', '$rootScope', '$http', function ($scope, $rootScope, $http) {
+            // khởi tạo datatable
+            var table = $("#gridUser")
+            //  param
+            $scope.Title = "" || "Thông tin tài khoản";
+            $scope.objSearch = {};
+            $scope.objSearch.Name = "Boos mayf ddaay"
+            // get các tham số cho dropdownlist
+            $http({
+                method: 'GET',
+                url: '/AppUser/GetGroupUser'
+            }).then(function successCallback(response) {
+                $scope.Groupuser = response.data.data;
+                if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                    $scope.$apply();
+                }
+            }, function errorCallback(response) {
+
+            });
+            // khởi tạo object
+            $scope.AddData = function () {
+                $scope.Title = "Tạo mới tài khoản"
+                $scope.user = {};
+            }
+            // hàm sửa tài khoản
+            EditData = function (id) {
+                $scope.user = {};
+                $scope.user.Id = id;
+                $http({
+                    method: 'GET',
+                    url: '/AppUser/GetUserById/' + id
+                }).then(function successCallback(response) {
+                    $scope.user = response.data.data;
+                    console.log($scope.user);
+                    $('#modalUser').modal('show');
+                    if ($scope.$root.$$phase != '$apply' && $scope.$root.$$phase != '$digest') {
+                        $scope.$apply();
+                    }
+                }, function errorCallback(response) {
+                        toastr.error(response.data.mess, 'Thông báo', { timeOut: 5000 });
+                });
+            }
+            // Lưu
+            $scope.Save = function () {
+                // kiểm tra xem là thêm hay sửa
+                var url = "";
+                if ($scope.user.Id == undefined || $scope.user.Id == '' || $scope.user.Id == null) {
+                    url = '/AppUser/CreateUser'
+                }
+                else {
+                    url = '/AppUser/ModifyUser'
+                }
+                $http({
+                    method: 'POST',
+                    url: url,
+                    datatype: "json",
+                    data: JSON.stringify($scope.user)
+                }).then(function (response) {
+                    console.log(response.data);
+                    if (response.data.success) {
+                        toastr.success(response.data.mess, 'Thông báo', { timeOut: 5000 });
+                        $('#modalUser').modal('hide');
+                        table.ajax.reload();
+                    } else {
+                        toastr.error(response.data.mess, 'Thông báo', { timeOut: 5000 });
+                    }
+                });
+            }
+
+            DeleteData = function (id) {
+                $.confirm({
+                    title: 'Xác nhận!',
+                    content: 'Xóa tài khoản!',
+                    buttons: {
+                        confirm: {
+                            text: 'Xác nhận',
+                            btnClass: 'btn btn-info ',
+                            keys: ['enter', 'shift'],
+                            action: function () {
+                                $http({
+                                    method: 'POST',
+                                    url: '/AppUser/DeleteUser/'+id,
+                                    datatype: "json"
+                                }).then(function (response) {
+                                    console.log(response.data);
+                                    if (response.data.success) {
+                                        toastr.success(response.data.mess, 'Thông báo', { timeOut: 5000 });
+                                      
+                                        table.ajax.reload();
+                                    } else {
+                                        toastr.error(response.data.mess, 'Thông báo', { timeOut: 5000 });
+                                    }
+                                });
+                            }
+                        },
+                        cancel: {
+                            text: 'Hủy',
+                            btnClass: 'btn btn-secondary btn-rounded btn-sm',
+                            action: function () {
+                               
+                            }
+                        }
+                    }
+                });
+
+            }
+            $(document).ready(function () {
+
+                $("#showSearch").click(function () {
+
+                    $("#searchPanel").fadeToggle("slow");
+                    $("#plush").toggle();
+                    $("#minus").toggle();
+                });
+                LoadUser();
+
+            });
+            ReloadUser = function () {
+
+                table.ajax.reload();
+
+            }
+            LoadUser = function () {
+            
+               
+                table = $("#gridUser").removeAttr('width').DataTable({
+                    // Hàm mặc định set màu cho row
+                    //"createdRow": function (row, data, dataIndex) {
+                    //    //if ( data.tenthuoctinh == "giatri" ) {
+                    //    //    $(row).addClass('tenclass');
+                    //    //}
+                    //},
+                    // sau khi load, callback lại sự kiện, set theo điều kiên nếu cần
+                    // vd nếu id = 12 thì màu đỏ, ngược lại thì màu cam
+                    //"rowCallback": function (row, data, index) {
+                    //    if (data.Id == 12) {
+                    //        $('td', row).css('background-color', 'Red');
+                    //    }
+                    //    else {
+                    //        $('td', row).css('background-color', 'Orange');
+                    //    }
+                    //},
+                    // ngôn ngữ, hiện ảnh gif khi load ajax, thông báo khi result rỗng
+                  
+                    "language": {
+                        "processing": "<img src='/Content/themes/img/Interwind-1s-200px.gif'> Loading...",
+                        "emptyTable": "Dữ liệu trống..."
+                    },
+                    "autoWidth": false,
+                    "tabIndex": 2,
+                    "responsive": true,
+                    "fixedHeader":true,
+                    "stateSave": true,
+                    "processing": true, //  show progress bar
+                    "serverSide": true, //  process server side
+                    "filter": true, //  (search box)
+                    "orderMulti": false, // multiple column at once
+                    "pageLength": 10, //số bảng ghi trên lưới
+                    "ajax": {
+                        "url": "/AppUser/GetAllAppUser",
+                        "type": "POST",
+                        "datatype": "json",
+                        "data": function(d){
+                            d.name = $scope.objSearch.Name;
+                        }
+                    },
+                    "columnDefs":
+                        [
+                            {
+                                "targets": [0],
+                                "visible": false,
+                                "searchable": false
+                            },
+                            {
+                                "targets": [7],
+                                "searchable": false,
+                                "orderable": false
+                            },
+                            {
+                                "targets": [8],
+                                "searchable": false,
+                                "orderable": false
+                            },
+                            { "responsivePriority": 0, "targets": 0 }
+                        ],
+
+                    "columns": [
+                        { "data": "Id", "name": "Id" },
+                        { "data": "UserName", "title": "Tên đăng nhập", "name": "UserName" },
+                        { "data": "Name", "name": "Name" },
+                        {
+                            "data": "DateOfBirth", "name": "DateOfBirth",
+                            // sau khi đọc dữ liệu trường dateofbirth, render lại , format theo định dạng mong muốn, sử dụng momentjs
+                            render: function (data, type, row) {
+                                if (type === "sort" || type === "type") {
+                                    return data;
+                                }
+                                if (data !== null) {
+                                    return moment(data).format("DD/MM/YYYY");
+                                } else
+                                    return "";
+                               
+                            }
+                        },
+                        { "data": "Email", "name": "Email","width": "10%" },
+                        { "data": "Phone", "name": "Phone" },
+                        { "data": "Address", "name": "Address" },
+                        { "data": "AppGroupUserName", "name": "AppGroupUserName", "title": "Nhóm tài khoản" },
+                        {
+                            "render": function (data, type, full, meta) {
+                                return '<a class="btn btn-info" onclick=EditData("' + full.Id + '");><i class="fa fa-pencil"></i></a>' +
+                                    "<a class='btn btn-danger' onclick=DeleteData('" + full.Id + "'); ><i class='fa fa-trash-o'></i></a>";
+                            }
+                        }
+                    ]
+
+                });
+                //new $.fn.dataTable.FixedHeader(table);
+
+
+            }
+
+            // GetGroupUser
+            $scope.Groupuser = {};
+
+
+        }])
+
+
+    </script>
+    <div class="element-box">
+        <form>
+            <div class="form-desc">
+                Tìm kiếm
+                <div class="btn btn-success btn-rounded btn-sm" id="showSearch">
+                    <i class="fa fa-caret-down" id="plush"></i>
+                    <i class="fa fa-caret-up" id="minus" style="display:none"></i>
+                </div>
+                <button class="btn btn-success btn-rounded btn-sm float-right" data-target="#modalUser" data-ng-click="AddData()" data-toggle="modal" type="button">
+                    <i class="fa fa-plus"></i>
+                    Thêm mới
+                </button>
+                <div id="searchPanel" style="display:none; margin-top:10px">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Tên đăng nhập" data-ng-model="objSearch.UserName" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Họ tên" data-ng-model="objSearch.Name" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select chosen options="Groupuser"
+                                        data-ng-model="objSearch.AppGroupUserId"
+                                        data-placeholder="Chọn nhóm tài khoản"
+                                        no-results-text="Không có nhóm tài khoản"
+                                        data-ng-options="us.Id as us.GroupName for us in Groupuser">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                            
+                                <input type="text" class="form-control" placeholder="Điện thoại" data-ng-model="objSearch.Phone" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="pull-right">
+                                <div class="btn btn-secondary btn-rounded btn-sm" onclick="$('#gridUser').DataTable().ajax.reload();">
+                                    Tìm kiếm
+                                    <i class="fa fa-search-minus"></i>
+                                </div>
+                            </div>
+                        </div>
+                       
+                      
+                    </div>
+                </div>
+
+                <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="modalUser" role="dialog" tabindex="-1" data-backdrop="true" data-keyboard="false">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                    {{Title}}
+                                </h5>
+                                <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true"> &times;</span></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Tên đăng nhập</label>
+                                            <input type="text" class="form-control" placeholder="Tên đăng nhập" data-ng-model="user.UserName" required />
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Họ tên</label>
+                                            <input type="text" class="form-control" placeholder="Họ tên" data-ng-model="user.Name" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for=""> Nhóm tài khoản</label>
+                                            <select chosen options="Groupuser"
+                                                    data-ng-model="user.AppGroupUserId"
+                                                    @*multiple*@ @*nếu là chọn nhiều*@
+                                                    no-results-text="Không có nhóm tài khoản"
+                                                    data-ng-options="us.Id as us.GroupName for us in Groupuser">
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for=""> Mật khẩu</label><input class="form-control" data-ng-model="user.PassWord" placeholder="Mật khẩu(để trống sẽ là mật khẩu mặc định)" type="password">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="text" class="form-control" placeholder="Email" data-ng-model="user.Email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for=""> Ngày sinh</label><input class=" pickerdate form-control" placeholder="Ngày sinh" type="text" data-ng-model="user.DateOfBirth">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Điện thoại</label>
+                                            <input type="text" class="form-control" placeholder="Điện thoại" data-ng-model="user.Phone" />
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Địa chỉ</label>
+                                            <input type="text" class="form-control" placeholder="Địa chỉ" data-ng-model="user.Address" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary btn-rounded btn-sm" data-dismiss="modal" type="button"><i class="fa fa-times"></i> Close</button>
+                                <button class="btn btn-success btn-rounded btn-sm" type="button" data-ng-click="Save()"> <i class="fa fa-save"></i> Xác nhận</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div id="dialog-confirm" title="Empty the recycle bin?" style="display:none">
+                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+            </div>
+
+
+
+            <div class="table-responsive">
+                <table id="gridUser" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th style="width:100px">Tên đăng nhập</th>
+                            <th>Họ tên</th>
+                            <th style="width:100px">Ngày sinh</th>
+                            <th style="width:50px">Email</th>
+                            <th>Điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Nhóm tài khoản</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </thead>
+
+                </table>
+
+
+            </div>
+        </form>
+    </div>
+</div>

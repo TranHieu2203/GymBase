@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+@using GymApp.Website.Helper;
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <title>GymmApp - @ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" type="text/css">
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/bower_components/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="~/Content/themes/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="~/Content/themes/bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
+    <link href="~/Content/themes/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/themes/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="~/Content/themes/bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="~/Content/themes/bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+    <link href="~/Content/themes/css/main.css?version=4.4.0" rel="stylesheet">
+</head>
+<body class="auth-wrapper" data-ng-controller="logincontroller as logincontroller">
+    <div class="all-wrapper menu-side with-pattern">
+        <div class="auth-box-w">
+            <div class="logo-w">
+            </div>
+            <h4 class="auth-header">
+                @ResourceHelper.GetText("TitleLogin")
+            </h4>
+            <form data-ng-keyup="$event.keyCode == 13 && Login()" >
+
+                <div class="form-group">
+                    <label for="">Tên đăng nhập</label><input class="form-control" data-ng-model="loginModel.Username" placeholder="Enter your username" type="text">
+                    <div class="pre-icon os-icon os-icon-user-male-circle"></div>
+                </div>
+                <div class="form-group">
+                    <label for="">Mật khẩu</label><input class="form-control" data-ng-model="loginModel.Password"  placeholder="Enter your password" type="password">
+                    <div class="pre-icon os-icon os-icon-fingerprint"></div>
+                </div>
+                <div class="buttons-w">
+                    <div class="form-check-inline">
+                        <label class="form-check-label"><input class="form-check-input" type="checkbox" data-ng-model="loginModel.RememberMe">Ghi nhớ</label>
+                    </div>
+                    <div class="btn btn-primary" data-ng-click="Login()">Đăng nhập</div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="~/Content/themes/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/logincontroller.js"></script>
+
+</body>
+</html>
+

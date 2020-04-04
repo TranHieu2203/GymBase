@@ -1,0 +1,16 @@
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Repository.dll.config
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Repository.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Repository.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\EntityFramework.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\EntityFramework.SqlServer.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Model.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Common.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Model.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Model.dll.config
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\EntityFramework.xml
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\EntityFramework.SqlServer.xml
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\bin\Release\GymApp.Common.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\obj\Release\GymApp.Repository.csprojAssemblyReference.cache
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\obj\Release\GymApp.Repository.csproj.CopyComplete
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\obj\Release\GymApp.Repository.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Repository\obj\Release\GymApp.Repository.pdb

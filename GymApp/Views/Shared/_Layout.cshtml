@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GymApp - @ViewBag.Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet" type="text/css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/themes/icon_fonts_assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.min.css">
+    <link rel="image_src" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen-sprite.png">
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+
+
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/bower_components/datepicker/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" />
+    <script src="~/Content/themes/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Content/themes/bower_components/popper.js/dist/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="~/Content/themes/bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="~/Content/themes/bower_components/select2/dist/js/select2.full.min.js"></script>
+    <script src="~/Content/themes/bower_components/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+    <script src="~/Content/themes/bower_components/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap-validator/dist/validator.min.js"></script>
+    <script src="~/Content/themes/bower_components/datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/Content/themes/bower_components/ion.rangeSlider/js/ion.rangeSlider.min.js"></script>
+    <script src="~/Content/themes/bower_components/dropzone/dist/dropzone.js"></script>
+    <script src="~/Content/themes/bower_components/editable-table/mindmup-editabletable.js"></script>
+    <script src="~/Content/themes/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/themes/bower_components/datepicker/locales/bootstrap-datepicker.vi.min.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/themes/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/themes/bower_components/tether/examples/chosen/chosen.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>*@
+
+
+    <script src="~/Content/themes/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="~/Content/themes/bower_components/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Content/themes/bower_components/tether/dist/js/tether.min.js"></script>
+    <script src="~/Content/themes/bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/util.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/alert.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/button.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/carousel.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/collapse.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/dropdown.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/modal.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/tab.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/tooltip.js"></script>
+    <script src="~/Content/themes/bower_components/bootstrap/js/dist/popover.js"></script>
+    <script src="~/Content/themes/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/themes/js/demo_customizer.js?version=4.4.0"></script>
+    <script src="~/Content/themes/js/main.js?version=4.4.0"></script>
+    <script src="~/Scripts/angular-chosen.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+   
+
+</head>
+<body class="menu-position-side menu-side-left full-screen with-content-panel">
+    <div class="all-wrapper with-side-panel solid-bg-all">
+        <div class="layout-w">
+            @* header *@
+            @Html.Partial("_Leftmenu")
+            @* body *@
+            <div class="content-w">
+                @* top bar, search bar*@
+                @Html.Partial("_Topbar")
+                <div class="content-i">
+                    <div class="content-box">
+                        <div class="row">
+                            <div class="col-12">
+                                @RenderBody()
+                                <footer class="footer">
+                                    <p>&copy; @DateTime.Now - GymApplication</p>
+                                </footer>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

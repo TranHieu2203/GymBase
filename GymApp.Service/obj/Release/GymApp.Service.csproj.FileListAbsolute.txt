@@ -1,0 +1,16 @@
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Service.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Service.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Common.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Model.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Repository.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\EntityFramework.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Common.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Model.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Model.dll.config
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Repository.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\GymApp.Repository.dll.config
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\bin\Release\EntityFramework.xml
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\obj\Release\GymApp.Service.csprojAssemblyReference.cache
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\obj\Release\GymApp.Service.csproj.CopyComplete
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\obj\Release\GymApp.Service.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Service\obj\Release\GymApp.Service.pdb

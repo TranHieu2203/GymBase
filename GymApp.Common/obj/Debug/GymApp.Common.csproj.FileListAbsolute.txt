@@ -1,0 +1,11 @@
+D:\Source\GymApp\GymApp\GymApp.Common\bin\Debug\GymApp.Common.dll
+D:\Source\GymApp\GymApp\GymApp.Common\bin\Debug\GymApp.Common.pdb
+D:\Source\GymApp\GymApp\GymApp.Common\obj\Debug\GymApp.Common.csprojAssemblyReference.cache
+D:\Source\GymApp\GymApp\GymApp.Common\obj\Debug\GymApp.Common.dll
+D:\Source\GymApp\GymApp\GymApp.Common\obj\Debug\GymApp.Common.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\bin\Debug\GymApp.Common.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\bin\Debug\GymApp.Common.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\obj\Debug\GymApp.Common.dll
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\obj\Debug\GymApp.Common.pdb
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\obj\Debug\GymApp.Common.csprojAssemblyReference.cache
+D:\Source\GymAppBase\GymAppBase\GymApp.Common\obj\Debug\GymApp.Common.csproj.CoreCompileInputs.cache
