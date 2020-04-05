@@ -263,6 +263,7 @@
                                 <select chosen options="Groupuser"
                                         data-ng-model="objSearch.AppGroupUserId"
                                         data-placeholder="Chọn nhóm tài khoản"
+                                        multiple
                                         no-results-text="Không có nhóm tài khoản"
                                         data-ng-options="us.Id as us.GroupName for us in Groupuser">
                                 </select>
@@ -321,6 +322,7 @@
                                             <label for=""> Nhóm tài khoản</label>
                                             <select chosen options="Groupuser"
                                                     data-ng-model="user.AppGroupUserId"
+                                                     data-placeholder="Chọn nhóm tài khoản"
                                                     @*multiple*@ @*nếu là chọn nhiều*@
                                                     no-results-text="Không có nhóm tài khoản"
                                                     data-ng-options="us.Id as us.GroupName for us in Groupuser">

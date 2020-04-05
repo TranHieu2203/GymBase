@@ -2,143 +2,87 @@
     ViewBag.Title = "Home Page";
 }
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Highcharts.chart('container', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Thống kê đơn hàng theo tháng'
+            },
+            subtitle: {
+                text: 'qlkh.homesun.vn'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Số đợ'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Hủy',
+                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }, {
+                name: 'Thành công',
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+        Highcharts.chart('container2', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: 'Thống kê đơn hàng theo tháng'
+            },
+            subtitle: {
+                text: 'qlkh.homesun.vn'
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Số đợ'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        enabled: true
+                    },
+                    enableMouseTracking: false
+                }
+            },
+            series: [{
+                name: 'Hủy',
+                data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }, {
+                name: 'Thành công',
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+    });
+  
+</script>
 
 
-            <div class="element-wrapper">
-            
-                <div class="element-box">
-                    <form>
-                        <h5 class="form-header">
-                            DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.. Learn More about DataTables
+<div class="element-wrapper">
 
-                        </h5>
-                        <div class="form-desc">
-                            Discharge best employed your phase each the of shine. Be met even reason consider logbook redesigns. Never a turned interfaces among asking
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Email address</label><input class="form-control" placeholder="Enter email" type="email">
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for=""> Password</label><input class="form-control" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="">Confirm Password</label><input class="form-control" placeholder="Password" type="password">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Regular select</label><select class="form-control">
-                                <option>
-                                    Select State
-                                </option>
-                                <option>
-                                    New York
-                                </option>
-                                <option>
-                                    California
-                                </option>
-                                <option>
-                                    Boston
-                                </option>
-                                <option>
-                                    Texas
-                                </option>
-                                <option>
-                                    Colorado
-                                </option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for=""> Multiselect</label><select class="form-control select2 select2-hidden-accessible" multiple="" tabindex="-1" aria-hidden="true">
-                                <option selected="true">
-                                    New York
-                                </option>
-                                <option selected="true">
-                                    California
-                                </option>
-                                <option>
-                                    Boston
-                                </option>
-                                <option>
-                                    Texas
-                                </option>
-                                <option>
-                                    Colorado
-                                </option>
-                            </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 438.5px;">
-                                <span class="selection">
-                                    <span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1">
-                                        <ul class="select2-selection__rendered">
-                                            <li class="select2-selection__choice" title="
-                New York
-              ">
-                                                <span class="select2-selection__choice__remove" role="presentation">×</span>
-                                                New York
-                                            </li>
-                                            <li class="select2-selection__choice" title="
-                California
-              ">
-                                                <span class="select2-selection__choice__remove" role="presentation">×</span>
-                                                California
-                                            </li>
-                                            <li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li>
-                                        </ul>
-                                    </span>
-                                </span><span class="dropdown-wrapper" aria-hidden="true"></span>
-                            </span>
-                        </div>
-                        <fieldset class="form-group">
-                            <legend><span>Section Example</span></legend>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for=""> First Name</label><input class="form-control" placeholder="First Name" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">Last Name</label><input class="form-control" placeholder="Last Name" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for=""> Date Picker</label>
-                                        <div class="date-input">
-                                            <input class="single-daterange form-control" placeholder="Date of birth" type="text" value="04/12/1978">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="">Twitter Username</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    
-                                                </div>
-                                            </div>
-                                            <input class="form-control" placeholder="Twitter Username" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label> Example textarea</label><textarea class="form-control" rows="3"></textarea>
-                            </div>
-                        </fieldset>
-                        <div class="form-check">
-                            <label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to terms and conditions</label>
-                        </div>
-                        <div class="form-buttons-w">
-                            <button class="btn btn-primary" type="submit"> Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <div id="container2"></div>
+    </figure>
+
+</div>
 
